@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         npm_config_cache = "${WORKSPACE}/.npm-cache"
+        NETLIFY_AUTH_TOKEN = credentials('netlify')
     }
 
     stages {
@@ -87,6 +88,7 @@ pipeline {
                 sh '''
                     npm install netlify-cli@20.1.1
                     node_modules/.bin/netlify --version
+                    node_modules/.bin/netlify status
                 '''
             }
         }
