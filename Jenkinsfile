@@ -43,7 +43,6 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'dist/**', allowEmptyArchive: true
             junit 'test-results/junit.xml'
         }
     }
