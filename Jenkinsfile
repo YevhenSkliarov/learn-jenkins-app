@@ -13,6 +13,7 @@ pipeline {
                     reuseNode true
                 }
             }
+
             steps {
                 sh '''
                     ls -la
@@ -37,6 +38,13 @@ pipeline {
                     npm test
                 '''
             }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'dist/**', allowEmptyArchive: true
+            junit 'test-results/junit.xml'
         }
     }
 }
