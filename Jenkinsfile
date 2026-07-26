@@ -31,10 +31,9 @@ pipeline {
                     reuseNode true
                 }
             }
-            
+
             steps {
                 sh '''
-                    test -f build/test/index.html
                     npm test
                 '''
             }
