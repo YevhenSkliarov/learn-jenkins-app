@@ -5,6 +5,7 @@ pipeline {
         npm_config_cache = "${WORKSPACE}/.npm-cache"
         NETLIFY_SITE_ID = 'fill-in-your-site-id'
         NETLIFY_AUTH_TOKEN = credentials('netlify')
+        REACT_APP_VERSION = "1.0.$BUILD_ID"
     }
 
     stages {
